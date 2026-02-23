@@ -1,6 +1,10 @@
 ayuda
-ayuda usuario
+tiempo
 usuario
 directorio
+listar
+calc 2 + 3
+calc 10 / 2
+calc 10 / 0
 historial
 salir
