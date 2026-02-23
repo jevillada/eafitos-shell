@@ -7,6 +7,7 @@
 #include <stdio.h>
 #include <signal.h>
 #include <unistd.h>
+#include <errno.h>
 
 static int g_running = 1;
 
@@ -24,7 +25,7 @@ void shell_run(void) {
     char line[MAX_LINE_LENGTH];
     char *argv[MAX_TOKENS];
 
-    /* Manejo básico de Ctrl+C (simple y suficiente para el reto) */
+    /* Manejo básico de Ctrl+C */
     signal(SIGINT, handle_sigint);
 
     printf("Bienvenido a EAFITos Shell\n");
@@ -33,18 +34,28 @@ void shell_run(void) {
     while (g_running) {
         print_prompt();
 
+        errno = 0;
         if (fgets(line, sizeof(line), stdin) == NULL) {
-            /*
-             * Si fue Ctrl+D (EOF), salimos limpio.
-             * Si fue interrupción o error de lectura, limpiamos y seguimos.
-             */
+            /* EOF normal (Ctrl+D o fin de pipe) */
             if (feof(stdin)) {
                 printf("\n");
                 break;
             }
 
-            clearerr(stdin);
-            continue;
+            /* Error de lectura/interrupción: evitar loop infinito */
+            if (ferror(stdin)) {
+                clearerr(stdin);
+
+                if (errno == EINTR) {
+                    continue;
+                }
+
+                print_error("Entrada inválida o interrumpida. Cerrando shell para evitar bucle.");
+                break;
+            }
+
+            print_error("No se pudo leer la entrada. Cerrando shell.");
+            break;
         }
 
         strip_newline(line);

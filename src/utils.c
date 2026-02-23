@@ -6,8 +6,10 @@ void strip_newline(char *s) {
     if (s == NULL) return;
 
     size_t len = strlen(s);
-    if (len > 0 && s[len - 1] == '\n') {
+
+    while (len > 0 && (s[len - 1] == '\n' || s[len - 1] == '\r')) {
         s[len - 1] = '\0';
+        len--;
     }
 }
 
