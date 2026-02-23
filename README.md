@@ -3,8 +3,8 @@
 Proyecto del Reto 1 de Sistemas Operativos.
 
 ## Integrantes
-- Integrante 1
-- Integrante 2
+- juan esteban villada orozco
+- david zapata orozco
 - Integrante 3
 
 ## Descripción
