@@ -4,10 +4,9 @@ Proyecto del **Reto 1 - SEHELL** (Sistemas Operativos / XV6) desarrollado en **C
 
 ## Integrantes
 - Juan Esteban Villada Orozco
-- [Nombre integrante 2]
+- David Zapata Orozco
 - [Nombre integrante 3]
 
-> Reemplazar los nombres entre corchetes por los nombres reales del equipo.
 
 ---
 
