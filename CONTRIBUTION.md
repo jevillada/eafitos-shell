@@ -19,7 +19,7 @@
 
 ---
 
-### [Nombre integrante 3] — 33%
+### [David Zapata Orozco] — 33%
 - Desarrollo y/o soporte de comandos avanzados
 - Soporte de historial de comandos
 - Apoyo en pruebas (`smoke test`) y ajustes finales
@@ -35,3 +35,4 @@ La colaboración del equipo se evidencia mediante:
 - integración final del proyecto y pruebas
 
 > Nota: actualizar esta sección al finalizar el flujo de ramas/PRs para que coincida con la actividad real del repositorio.
+
